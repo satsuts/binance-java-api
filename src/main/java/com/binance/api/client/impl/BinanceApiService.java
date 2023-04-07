@@ -11,6 +11,7 @@ import com.binance.api.client.domain.account.request.CancelOrderResponse;
 import com.binance.api.client.domain.event.ListenKey;
 import com.binance.api.client.domain.general.Asset;
 import com.binance.api.client.domain.general.ExchangeInfo;
+import com.binance.api.client.domain.general.Pair;
 import com.binance.api.client.domain.general.ServerTime;
 import com.binance.api.client.domain.market.*;
 import retrofit2.Call;
@@ -260,6 +261,10 @@ public interface BinanceApiService {
     @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER)
     @PUT("/sapi/v1/userDataStream")
     Call<Void> keepAliveMarginUserDataStream(@Query("listenKey") String listenKey);
+
+    @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER)
+    @GET("/sapi/v1/margin/allPairs")
+    Call<List<Pair>> getAllPairs();
 
     // Binance Liquidity Swap Pool endpoints
 
