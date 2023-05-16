@@ -7,6 +7,7 @@ import com.binance.api.client.domain.account.*;
 import com.binance.api.client.domain.account.request.*;
 import com.binance.api.client.domain.general.Asset;
 import com.binance.api.client.domain.general.ExchangeInfo;
+import com.binance.api.client.domain.general.Pair;
 import com.binance.api.client.domain.market.*;
 import retrofit2.Call;
 
@@ -277,5 +278,12 @@ public class BinanceApiRestClientImpl implements BinanceApiRestClient {
 	@Override
 	public void closeUserDataStream(String listenKey) {
 		executeSync(binanceApiService.closeAliveUserDataStream(listenKey));
+	}
+
+	// Margin endpoints
+
+	@Override
+	public List<Pair> getAllPairs() {
+		return executeSync(binanceApiService.getAllPairs());
 	}
 }

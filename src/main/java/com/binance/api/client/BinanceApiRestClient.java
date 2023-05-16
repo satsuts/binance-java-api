@@ -3,6 +3,7 @@ package com.binance.api.client;
 import com.binance.api.client.domain.account.*;
 import com.binance.api.client.domain.account.request.*;
 import com.binance.api.client.domain.general.ExchangeInfo;
+import com.binance.api.client.domain.general.Pair;
 import com.binance.api.client.domain.general.Asset;
 import com.binance.api.client.domain.market.AggTrade;
 import com.binance.api.client.domain.market.BookTicker;
@@ -329,4 +330,10 @@ public interface BinanceApiRestClient {
    * @param listenKey listen key that identifies a data stream
    */
   void closeUserDataStream(String listenKey);
+
+  /**
+   * Fetch all margin pairs.
+   *
+   */
+  List<Pair> getAllPairs();
 }
